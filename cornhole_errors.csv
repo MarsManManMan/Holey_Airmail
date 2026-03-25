@@ -1,0 +1,19 @@
+timestamp,error,traceback
+2026-03-24T08:12:39.168031,Camera __init__ sequence did not complete.,"Traceback (most recent call last):
+  File ""/usr/lib/python3/dist-packages/picamera2/picamera2.py"", line 353, in __init__
+    self._open_camera()
+    ~~~~~~~~~~~~~~~~~^^
+  File ""/usr/lib/python3/dist-packages/picamera2/picamera2.py"", line 565, in _open_camera
+    self.camera.acquire()
+    ~~~~~~~~~~~~~~~~~~~^^
+RuntimeError: Failed to acquire camera: Device or resource busy
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""/home/cornhole/cornhole_pro/cornholepro.py"", line 116, in init_camera
+    cam = Picamera2()
+  File ""/usr/lib/python3/dist-packages/picamera2/picamera2.py"", line 365, in __init__
+    raise RuntimeError(""Camera __init__ sequence did not complete."")
+RuntimeError: Camera __init__ sequence did not complete.
+"
