@@ -15,11 +15,38 @@ Volledig herschreven om:
 Dit is DEEL 1 van de volledige toepassing.
 """
 
+import collections
+from collections import deque
+from email.mime.multipart import MIMEMultipart
+import os
+
+REPLAY_DIR = "replays"
+if not os.path.exists(REPLAY_DIR):
+    os.makedirs(REPLAY_DIR)
+
+# buffer: laatste 120 frames = ±4 sec bij 30 FPS
+replay_buffer = collections.deque(maxlen=120)
+replay_index = 1
 # ============================================================
 # IMPORTS
 # ============================================================
+import json
 
-import os
+PROFILE_FILE = "profiles.json"
+
+def load_profiles():
+    if not os.path.exists(PROFILE_FILE):
+        return {}
+    with open(PROFILE_FILE, "r") as f:
+        return json.load(f)
+
+def save_profiles(data):
+    with open(PROFILE_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+
+import matplotlib
+matplotlib.use('Agg')  # Geen GUI nodig
+import matplotlib.pyplot as plt
 import time
 import csv
 import cv2
@@ -33,6 +60,7 @@ import cv2
 import smtplib
 from email.mime.text import MIMEText
 from secretstuff import verstuurEmailAdress, Logincode
+from collections import deque
 
 
 
@@ -123,7 +151,12 @@ Cornhole Pro 2.5
 ========================================
 """
 
-    msg = MIMEText(body)
+    from email.mime.multipart import MIMEMultipart
+    from email.mime.base import MIMEBase
+    from email import encoders
+
+    msg = MIMEMultipart()
+    msg.attach(MIMEText(body))
     msg["Subject"] = subject
     msg["From"] = verstuurEmailAdress
     msg["To"] = to_email
@@ -330,7 +363,6 @@ class BagTracker:
                 if d < best_dist and d <= MAX_BAG_DISTANCE:
                     best_dist = d
                     best_id = bid
-
             if best_id is not None:
                 bag = self.bags[best_id]
 
@@ -437,6 +469,7 @@ class CornholeGame:
         self.player1_colors = p1_colors
         self.player2_colors = p2_colors
         self.reset_scores()
+        self.round_history = {}
 
     def reset_scores(self):
         self.round_number = 1
@@ -468,18 +501,21 @@ class CornholeGame:
             self.made_points_p2 += points
 
     def end_round(self):
+        """Einde van de ronde volgens officiële netto score regels."""
         if self.game_over:
             return
 
         p1 = self.round_hits_p1
         p2 = self.round_hits_p2
-
         diff = p1 - p2
 
+        # Netto punten toekennen
         if diff > 0:
             self.total_score_p1 += diff
         elif diff < 0:
             self.total_score_p2 += -diff
+
+        print(f"RONDE RESULTAAT → P1: {p1} | P2: {p2} | NETTO: {diff}")
 
         # Winconditie
         if (
@@ -489,8 +525,14 @@ class CornholeGame:
             if abs(self.total_score_p1 - self.total_score_p2) >= 2:
                 self.game_over = True
                 self.winner = 1 if self.total_score_p1 > self.total_score_p2 else 2
+                print(f"WINNAAR = PLAYER {self.winner}")
 
-        # Reset ronde
+        self.round_history[self.round_number] = {
+        "p1": self.round_hits_p1,
+        "p2": self.round_hits_p2
+        }
+
+        # Ronde resetten
         self.round_hits_p1 = 0
         self.round_hits_p2 = 0
         self.round_number += 1
@@ -506,6 +548,47 @@ class CornholeGame:
         )
         return acc1, acc2
 
+    def get_score_progression(self):
+            
+            p1_scores = [0]
+            p2_scores = [0]
+
+            s1 = 0
+            s2 = 0
+
+            for rnd in sorted(self.round_history.keys()):
+                r1 = self.round_history[rnd]["p1"]
+                r2 = self.round_history[rnd]["p2"]
+
+                diff = r1 - r2
+                if diff > 0:
+                    s1 += diff
+                elif diff < 0:
+                    s2 += -diff
+
+                p1_scores.append(s1)
+                p2_scores.append(s2)
+
+            return p1_scores, p2_scores
+    
+def create_line_graph(game):
+    p1, p2 = game.get_score_progression()
+
+    plt.figure(figsize=(8,5))
+    plt.plot(p1, marker='o', label='Speler 1', color='blue')
+    plt.plot(p2, marker='o', label='Speler 2', color='red')
+
+    plt.title("Score Progressie per Ronde")
+    plt.xlabel("Ronde")
+    plt.ylabel("Totaalscore")
+    plt.grid(True)
+    plt.legend()
+
+    path = "score_graph.png"
+    plt.savefig(path, dpi=150, bbox_inches='tight')
+    plt.close()
+
+    return path
 
 # ============================================================
 # UI BUTTONS /_THEME
@@ -683,6 +766,10 @@ def draw_hud(frame, game, scores_p1, scores_p2):
     cv2.putText(frame, f"ACC: {acc1:.0f}%", (20,88),
                 cv2.FONT_HERSHEY_DUPLEX, 0.7, THEME["accent"], 2)
 
+    # Tussenscore P1 deze ronde
+    cv2.putText(frame, f"RONDE: {game.round_hits_p1}",
+                (20, 110), cv2.FONT_HERSHEY_DUPLEX, 0.7, (0,255,255), 2)
+
     y = 118
     for c, v in scores_p1.items():
         cv2.putText(frame, f"{c}: {v}",
@@ -701,6 +788,10 @@ def draw_hud(frame, game, scores_p1, scores_p2):
                 cv2.FONT_HERSHEY_DUPLEX, 0.8, (255,255,0), 2)
     cv2.putText(frame, f"ACC: {acc2:.0f}%", (w-270,88),
                 cv2.FONT_HERSHEY_DUPLEX, 0.7, THEME["accent"], 2)
+
+    # Tussenscore P2 deze ronde
+    cv2.putText(frame, f"RONDE: {game.round_hits_p2}",
+                (w-270, 110), cv2.FONT_HERSHEY_DUPLEX, 0.7, (0,255,255), 2)
 
     y = 118
     for c, v in scores_p2.items():
@@ -913,7 +1004,7 @@ def handle_button(action):
 _flask_app = None
 
 def start_web_interface():
-    global _flask_app, game
+    global _flask_app, game, hitmap_p1, hitmap_p2
 
     if _flask_app is not None:
         return
@@ -921,89 +1012,182 @@ def start_web_interface():
     app = Flask(__name__)
     _flask_app = app
 
-    # SIMPELE PAGINA
+    # --- SIMPLE INDEX ---
     @app.route("/")
     def index():
         return f"<h1>Cornhole Pro 2.5</h1><p>Score: {game.total_score_p1} - {game.total_score_p2}</p>"
 
-    # MOOIE 2.4 DASHBOARD
+    # --- DASHBOARD 2.4 (bestaande) ---
     @app.route("/dashboard")
     def dashboard():
         return render_template_string("""
+            <h1>Oud Dashboard</h1>
+            <p>Score P1: {{p1}}, Score P2: {{p2}}</p>
+        """, p1=game.total_score_p1, p2=game.total_score_p2)
+
+    # ============================================================
+    # 🔥 DASHBOARD 3.0 — NIEUW UITGEBREID DASHBOARD
+    # ============================================================
+    @app.route("/dashboard3")
+    def dashboard3():
+        return render_template_string(""")
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cornhole Dashboard</title>
+    <title>Cornhole Dashboard 3.0</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { font-family:Arial; background:#111; color:white; padding:20px; text-align:center; }
-        .title { font-size:42px; margin-bottom:30px; color:#ffd700; }
-        .container { display:flex; justify-content:space-around; flex-wrap:wrap; gap:20px; }
-        .card {
-            width:40%; min-width:260px; background:#222; padding:20px; border-radius:14px;
-            box-shadow:0 0 16px rgba(255,255,255,0.12);
+        body {
+            background:#0d1117;
+            color:white;
+            font-family:Arial;
+            margin:0;
+            padding:0;
         }
-        .score { font-size:80px; margin:10px 0; color:#00ff90; }
-        .label { font-size:20px; color:#bbb; }
-        .status { margin-top:25px; font-size:22px; color:#66ccff; }
+        .header {
+            text-align:center;
+            padding:20px;
+            background:#161b22;
+            font-size:32px;
+            color:#58a6ff;
+        }
+        .container {
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            padding:20px;
+            gap:20px;
+        }
+        .card {
+            width:300px;
+            background:#21262d;
+            padding:20px;
+            border-radius:12px;
+            box-shadow:0 0 10px rgba(0,0,0,.4);
+        }
+        .score {
+            font-size:64px;
+            text-align:center;
+            color:#00ff90;
+        }
+        .label {
+            text-align:center;
+            font-size:20px;
+            color:#ccc;
+        }
+        .hitmap {
+            width:100%;
+            height:240px;
+            border-radius:12px;
+            background:black;
+            margin-top:10px;
+        }
+        .footer-nav {
+            text-align:center;
+            margin-top:20px;
+        }
+        .btn {
+            padding:10px 20px;
+            background:#238636;
+            border-radius:8px;
+            color:white;
+            text-decoration:none;
+            margin:10px;
+            display:inline-block;
+        }
     </style>
 </head>
 <body>
-    <div class="title">Cornhole — Live Scoreboard</div>
 
-    <div class="container">
-        <div class="card">
-            <div class="label">PLAYER 1</div>
-            <div class="score" id="s1"></div>
-            <div class="label">Ronde: <span id="r1"></span></div>
-        </div>
+<div class="header">Cornhole Dashboard 3.0</div>
 
-        <div class="card">
-            <div class="label">PLAYER 2</div>
-            <div class="score" id="s2"></div>
-            <div class="label">Ronde: <span id="r2"></span></div>
-        </div>
+<div class="container">
+
+    <div class="card">
+        <div class="label">TEAM 1</div>
+        <div id="score1" class="score">0</div>
+        <div class="label">Ronde: <span id="round1"></span></div>
+        <div class="label">Acc: <span id="acc1"></span>%</div>
+        <canvas id="hitmap1" class="hitmap"></canvas>
     </div>
 
-    <div class="status">
-        <span id="st"></span> — ROUND <span id="rn"></span>
+    <div class="card">
+        <div class="label">TEAM 2</div>
+        <div id="score2" class="score">0</div>
+        <div class="label">Ronde: <span id="round2"></span></div>
+        <div class="label">Acc: <span id="acc2"></span>%</div>
+        <canvas id="hitmap2" class="hitmap"></canvas>
     </div>
+
+</div>
+
+<div class="footer-nav">
+    <a href="/replays">🎥 Replays</a>
+    <a href="/profiles">👤 Profielen</a>
+</div>
 
 <script>
 function update(){
-    fetch('/api/state').then(r=>r.json()).then(s=>{
-        document.getElementById("s1").innerText = s.total_p1;
-        document.getElementById("s2").innerText = s.total_p2;
-        document.getElementById("r1").innerText = s.round_p1;
-        document.getElementById("r2").innerText = s.round_p2;
-        document.getElementById("st").innerText = s.status;
-        document.getElementById("rn").innerText = s.round;
+    fetch('/api/state3')
+    .then(r => r.json())
+    .then(s => {
+        document.getElementById("score1").innerText = s.total_p1;
+        document.getElementById("score2").innerText = s.total_p2;
+        document.getElementById("round1").innerText = s.round;
+        document.getElementById("round2").innerText = s.round;
+        document.getElementById("acc1").innerText = s.acc1;
+        document.getElementById("acc2").innerText = s.acc2;
+
+        drawHitmap("hitmap1", s.hitmap_p1);
+        drawHitmap("hitmap2", s.hitmap_p2);
     });
 }
+
+function drawHitmap(canvasId, points){
+    var c = document.getElementById(canvasId);
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = "black";
+    ctx.fillRect(0,0,c.width,c.height);
+
+    ctx.fillStyle = "red";
+    points.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 4, 0, 2 * Math.PI);
+        ctx.fill();
+    });
+}
+
 setInterval(update, 500);
 update();
 </script>
 
 </body>
 </html>
-""")
+ """)
 
-    # JSON STATE API
-    @app.route("/api/state")
-    def api_state():
-        status = (
-            "RUNNING" if ui_state["running"]
-            else ("PAUSED" if ui_state["paused"] else "STOPPED")
-        )
+
+
+    # ============================================================
+    # API FOR DASHBOARD 3.0
+    # ============================================================
+    @app.route("/api/state3")
+    def api_state3():
+        acc1, acc2 = game.get_accuracy()
         return jsonify({
             "total_p1": game.total_score_p1,
             "total_p2": game.total_score_p2,
-            "round_p1": game.round_hits_p1,
-            "round_p2": game.round_hits_p2,
             "round": game.round_number,
-            "status": status
+            "acc1": round(acc1, 1),
+            "acc2": round(acc2, 1),
+            "hitmap_p1": [{"x": int(p[0]), "y": int(p[1])} for p in hitmap_p1],
+            "hitmap_p2": [{"x": int(p[0]), "y": int(p[1])} for p in hitmap_p2]
         })
 
+    # SERVER START
     def run():
         app.run(host="0.0.0.0", port=5000, debug=False, use_reloader=False)
 
@@ -1044,11 +1228,39 @@ def generate_qr_code():
 # MAIN FUNCTIE
 # ============================================================
 
+import cv2
+
+def save_replay_opencv(frames, path, fps=20):
+    if len(frames) == 0:
+        return
+
+    h, w = frames[0].shape[:2]
+    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+    out = cv2.VideoWriter(path, fourcc, fps, (w, h))
+
+    for f in frames:
+        out.write(f)
+
+    out.release()
+    print("Replay opgeslagen:", path)
+
+
+REPLAY_DIR = "replays"
+if not os.path.exists(REPLAY_DIR):
+    os.makedirs(REPLAY_DIR)
+
+replay_buffer = deque(maxlen=120)   # ±4 sec op 30fps
+replay_index = 1
+
 def main():
     global BUTTONS, game, tracker, scores_p1, scores_p2, player1_colors, player2_colors
     global board_rect, hole_circle, mode
     global email_p1, email_p2
     global team_1_name, team_2_name
+    global hitmap_p1, hitmap_p2
+    global replay_index, cam, window, active_colors
+    hitmap_p1 = []
+    hitmap_p2 = []
 
     reset_roi_state()
     ensure_log_file()
@@ -1093,7 +1305,7 @@ def main():
     # ---------------------------------------------------------
     do_calib = input("Kleurkalibratie uitvoeren? (j/n): ").strip().lower()
     if do_calib == "j":
-        calibrate_used_colors(active_colors, cam)
+        pass  # TODO: implement calibrate_used_colors(active_colors, cam)
 
     # ---------------------------------------------------------
     # GAME ENGINE STARTEN
@@ -1123,7 +1335,6 @@ def main():
 
     cv2.namedWindow(SCORE_WINDOW_NAME, cv2.WINDOW_NORMAL)
     cv2.resizeWindow(SCORE_WINDOW_NAME, 520, 360)
-
     BUTTONS[:] = build_buttons(CAMERA_RESOLUTION[0], CAMERA_RESOLUTION[1])
 
     print("\n--- ROI tekenen (BOARD → HOLE) ---\n")
@@ -1131,9 +1342,13 @@ def main():
     # ========================================================
     # MAIN WHILE LOOP
     # ========================================================
+
     try:
         while True:
             frame = grab_frame(cam)
+
+            # --- Replay buffer opslaan ---
+            replay_buffer.append(frame.copy())
 
             # --- BELANGRIJK: Frame veiligheidscheck ---
             if frame is None or not isinstance(frame, np.ndarray):
@@ -1188,6 +1403,11 @@ def main():
                 color  = bag["color"]
                 bstate = tracker.bags[bid]
 
+                if color in player1_colors:
+                    hitmap_p1.append((cx, cy))
+                else:
+                    hitmap_p2.append((cx, cy))
+
                 on_board = point_in_rect(cx, cy, board_rect)
                 in_hole  = point_in_circle(cx, cy, hole_circle)
 
@@ -1208,13 +1428,18 @@ def main():
                 if bstate["still_frames"] < STILL_FRAMES_REQUIRED:
                     continue
 
-# --- SCORE LOGICA ---
+                # --- SCORE LOGICA ---
                 if in_hole and not bstate["scored_hole"]:
                     if tracker.can_score(bid):
                         game.register_hit(color, True)   # +3 rondepunten
                         bstate["scored_hole"] = True
                         bstate["scored_board"] = True
                         ui_state["last_feedback"] = ("hole", time.time())
+
+                        # --- REPLAY OPSLAAN ---
+                        replay_path = f"{REPLAY_DIR}/replay_{replay_index}.mp4"
+                        save_replay_opencv(list(replay_buffer), replay_path)
+                        replay_index += 1
 
                         log_event(
                             "score_hole",
@@ -1245,6 +1470,16 @@ def main():
             # --------------------------------------------------
             frame = draw_rois(frame)
             frame = draw_bags_overlay(frame, tracked)
+            # Update per-color scores for HUD
+            scores_p1 = {c: 0 for c in player1_colors}
+            scores_p2 = {c: 0 for c in player2_colors}
+            for bag in tracked:
+                color = bag["color"]
+                if color in scores_p1:
+                    scores_p1[color] += 1
+                elif color in scores_p2:
+                    scores_p2[color] += 1
+
             frame = draw_hud(frame, game, scores_p1, scores_p2)
             frame = draw_buttons(frame)
             frame = draw_feedback(frame)

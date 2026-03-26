@@ -5258,5 +5258,2355 @@
         "total_score_p1": 21,
         "total_score_p2": 5,
         "round": 4
+    },
+    {
+        "timestamp": "2026-03-25T09:59:43.204048",
+        "event": "start",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-25T09:59:43.287865",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-25T09:59:57.022159",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-25T10:00:03.320011",
+        "event": "score_hole",
+        "player": 1,
+        "color": "groen",
+        "points": 3,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-25T10:00:24.538294",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 1,
+        "total_score_p2": 0,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-25T10:58:34.683283",
+        "event": "start",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T07:54:29.939173",
+        "event": "start",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T07:54:48.783756",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T07:54:54.810799",
+        "event": "score_hole",
+        "player": 2,
+        "color": "roze",
+        "points": 3,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T08:03:48.688798",
+        "event": "start",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T08:36:52.076308",
+        "event": "start",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T08:37:03.695289",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T08:37:09.335609",
+        "event": "score_hole",
+        "player": 2,
+        "color": "roze",
+        "points": 3,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T08:37:09.488003",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T08:37:20.009977",
+        "event": "score_hole",
+        "player": 2,
+        "color": "roze",
+        "points": 3,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T08:37:23.024111",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T08:37:30.302564",
+        "event": "score_hole",
+        "player": 2,
+        "color": "roze",
+        "points": 3,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T08:37:34.787944",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T08:37:40.254094",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T08:37:49.081822",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T08:38:05.432753",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 7,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T08:38:26.343415",
+        "event": "score_hole",
+        "player": 1,
+        "color": "groen",
+        "points": 3,
+        "total_score_p1": 0,
+        "total_score_p2": 7,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T08:38:30.376066",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 7,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T08:39:44.147952",
+        "event": "score_hole",
+        "player": 1,
+        "color": "groen",
+        "points": 3,
+        "total_score_p1": 0,
+        "total_score_p2": 7,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T08:39:45.913948",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 5,
+        "total_score_p2": 7,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T08:39:48.423184",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 5,
+        "total_score_p2": 7,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T08:39:56.381973",
+        "event": "score_hole",
+        "player": 1,
+        "color": "groen",
+        "points": 3,
+        "total_score_p1": 5,
+        "total_score_p2": 7,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T08:40:15.126013",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 5,
+        "total_score_p2": 7,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T08:40:20.075903",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 5,
+        "total_score_p2": 7,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T08:40:23.821571",
+        "event": "score_hole",
+        "player": 1,
+        "color": "groen",
+        "points": 3,
+        "total_score_p1": 5,
+        "total_score_p2": 7,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T08:40:26.100349",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 5,
+        "total_score_p2": 7,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T08:40:32.059530",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 5,
+        "total_score_p2": 7,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T08:40:37.309785",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 13,
+        "total_score_p2": 7,
+        "round": 5
+    },
+    {
+        "timestamp": "2026-03-26T08:40:43.608680",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 14,
+        "total_score_p2": 7,
+        "round": 5
+    },
+    {
+        "timestamp": "2026-03-26T08:40:43.944459",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 15,
+        "total_score_p2": 7,
+        "round": 5
+    },
+    {
+        "timestamp": "2026-03-26T08:40:44.741696",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 15,
+        "total_score_p2": 8,
+        "round": 5
+    },
+    {
+        "timestamp": "2026-03-26T08:40:45.787389",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 15,
+        "total_score_p2": 8,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T08:40:46.673804",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 16,
+        "total_score_p2": 8,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T08:40:47.127553",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 17,
+        "total_score_p2": 8,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T08:40:47.418991",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 18,
+        "total_score_p2": 8,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T08:40:47.695129",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 19,
+        "total_score_p2": 8,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T08:40:48.916620",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 19,
+        "total_score_p2": 9,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T08:40:49.982015",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 19,
+        "total_score_p2": 9,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T08:40:51.363833",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 20,
+        "total_score_p2": 9,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T08:40:51.827060",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 9,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T08:40:53.234000",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 21,
+        "total_score_p2": 9,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T08:40:55.610618",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 22,
+        "total_score_p2": 9,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T09:12:17.030138",
+        "event": "start",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T09:13:51.967696",
+        "event": "start",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T09:14:07.761341",
+        "event": "score_hole",
+        "player": 2,
+        "color": "roze",
+        "points": 3,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T09:14:12.613081",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T09:14:15.447517",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T09:14:29.064525",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T09:14:42.793105",
+        "event": "score_hole",
+        "player": 2,
+        "color": "roze",
+        "points": 3,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T09:14:43.202464",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T09:14:48.300774",
+        "event": "score_hole",
+        "player": 1,
+        "color": "groen",
+        "points": 3,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T09:14:52.095792",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 1,
+        "total_score_p2": 1,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T09:26:32.815778",
+        "event": "score_hole",
+        "player": 2,
+        "color": "roze",
+        "points": 3,
+        "total_score_p1": 1,
+        "total_score_p2": 1,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T09:26:33.221043",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 1,
+        "total_score_p2": 1,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T09:26:36.383085",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 1,
+        "total_score_p2": 1,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T09:26:40.466235",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 1,
+        "total_score_p2": 2,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T09:27:07.218529",
+        "event": "score_hole",
+        "player": 1,
+        "color": "groen",
+        "points": 3,
+        "total_score_p1": 1,
+        "total_score_p2": 2,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T09:27:10.632644",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 4,
+        "total_score_p2": 2,
+        "round": 5
+    },
+    {
+        "timestamp": "2026-03-26T09:27:55.951499",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 4,
+        "total_score_p2": 2,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T09:28:07.330711",
+        "event": "score_hole",
+        "player": 1,
+        "color": "groen",
+        "points": 3,
+        "total_score_p1": 4,
+        "total_score_p2": 2,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T09:28:09.201702",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 4,
+        "total_score_p2": 2,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T09:28:11.592556",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 4,
+        "total_score_p2": 2,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T09:28:13.491995",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 4,
+        "total_score_p2": 2,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T09:28:18.259103",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 8,
+        "total_score_p2": 2,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T09:28:30.810368",
+        "event": "score_hole",
+        "player": 1,
+        "color": "groen",
+        "points": 3,
+        "total_score_p1": 8,
+        "total_score_p2": 2,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T09:28:36.665337",
+        "event": "score_hole",
+        "player": 1,
+        "color": "groen",
+        "points": 3,
+        "total_score_p1": 8,
+        "total_score_p2": 2,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T09:28:37.175479",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 14,
+        "total_score_p2": 2,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T09:28:47.355348",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 14,
+        "total_score_p2": 2,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T09:28:53.120804",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 15,
+        "total_score_p2": 2,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T09:28:58.513805",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 15,
+        "total_score_p2": 2,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T09:29:00.500859",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 15,
+        "total_score_p2": 2,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T09:29:04.786670",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 15,
+        "total_score_p2": 2,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T09:29:12.389433",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 15,
+        "total_score_p2": 3,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T09:29:12.991573",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 15,
+        "total_score_p2": 4,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T09:29:15.462435",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 16,
+        "total_score_p2": 4,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T09:29:15.810479",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 17,
+        "total_score_p2": 4,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T09:29:16.233229",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 18,
+        "total_score_p2": 4,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T09:29:17.348844",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 19,
+        "total_score_p2": 4,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T09:29:18.187630",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 20,
+        "total_score_p2": 4,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T09:29:18.774653",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 4,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T09:29:20.692126",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 21,
+        "total_score_p2": 4,
+        "round": 11
+    },
+    {
+        "timestamp": "2026-03-26T10:02:16.964675",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T10:02:30.674961",
+        "event": "start",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T10:02:38.284322",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T10:02:44.742557",
+        "event": "score_hole",
+        "player": 1,
+        "color": "groen",
+        "points": 3,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T10:02:51.082504",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 2,
+        "total_score_p2": 0,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T10:03:07.395205",
+        "event": "score_hole",
+        "player": 1,
+        "color": "groen",
+        "points": 3,
+        "total_score_p1": 2,
+        "total_score_p2": 0,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T10:03:17.693192",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 2,
+        "total_score_p2": 0,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T10:03:23.854965",
+        "event": "score_hole",
+        "player": 2,
+        "color": "roze",
+        "points": 3,
+        "total_score_p1": 2,
+        "total_score_p2": 0,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T10:03:28.970256",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 3,
+        "total_score_p2": 0,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T10:03:38.948846",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 3,
+        "total_score_p2": 0,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T10:03:40.776103",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 3,
+        "total_score_p2": 0,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T10:03:42.824186",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 5,
+        "total_score_p2": 0,
+        "round": 5
+    },
+    {
+        "timestamp": "2026-03-26T10:03:53.036685",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 5,
+        "total_score_p2": 0,
+        "round": 5
+    },
+    {
+        "timestamp": "2026-03-26T10:03:56.971845",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 5,
+        "total_score_p2": 1,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T10:04:04.308525",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 5,
+        "total_score_p2": 1,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T10:04:07.323300",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 6,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:04:14.957447",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 6,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:04:17.795657",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 6,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:04:25.192862",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 6,
+        "total_score_p2": 1,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:04:39.652966",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 6,
+        "total_score_p2": 2,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:04:40.102700",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 6,
+        "total_score_p2": 3,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:04:40.397584",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 6,
+        "total_score_p2": 4,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:04:40.840301",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 6,
+        "total_score_p2": 5,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:04:41.135758",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 6,
+        "total_score_p2": 6,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:04:42.091499",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 7,
+        "total_score_p2": 6,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:04:42.427769",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 8,
+        "total_score_p2": 6,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:04:42.731457",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 9,
+        "total_score_p2": 6,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:04:43.171059",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 10,
+        "total_score_p2": 6,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:04:44.292500",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 10,
+        "total_score_p2": 6,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:04:46.017442",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 10,
+        "total_score_p2": 7,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:04:46.335808",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 10,
+        "total_score_p2": 8,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:04:46.658215",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 10,
+        "total_score_p2": 9,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:04:46.945640",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 10,
+        "total_score_p2": 10,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:04:47.643690",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 10,
+        "total_score_p2": 11,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:04:48.580067",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 11,
+        "total_score_p2": 11,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:04:49.040778",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 12,
+        "total_score_p2": 11,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:04:49.481118",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 13,
+        "total_score_p2": 11,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:04:49.786675",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 14,
+        "total_score_p2": 11,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:04:50.091572",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 15,
+        "total_score_p2": 11,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:04:50.764689",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 15,
+        "total_score_p2": 11,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T10:04:51.772707",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 15,
+        "total_score_p2": 11,
+        "round": 11
+    },
+    {
+        "timestamp": "2026-03-26T10:04:53.689888",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 15,
+        "total_score_p2": 12,
+        "round": 11
+    },
+    {
+        "timestamp": "2026-03-26T10:04:53.999136",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 15,
+        "total_score_p2": 13,
+        "round": 11
+    },
+    {
+        "timestamp": "2026-03-26T10:04:54.314642",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 15,
+        "total_score_p2": 14,
+        "round": 11
+    },
+    {
+        "timestamp": "2026-03-26T10:04:54.476612",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 15,
+        "total_score_p2": 14,
+        "round": 12
+    },
+    {
+        "timestamp": "2026-03-26T10:04:55.101058",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 16,
+        "total_score_p2": 14,
+        "round": 12
+    },
+    {
+        "timestamp": "2026-03-26T10:04:55.562497",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 17,
+        "total_score_p2": 14,
+        "round": 12
+    },
+    {
+        "timestamp": "2026-03-26T10:04:55.862257",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 18,
+        "total_score_p2": 14,
+        "round": 12
+    },
+    {
+        "timestamp": "2026-03-26T10:04:56.168165",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 19,
+        "total_score_p2": 14,
+        "round": 12
+    },
+    {
+        "timestamp": "2026-03-26T10:04:56.467767",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 20,
+        "total_score_p2": 14,
+        "round": 12
+    },
+    {
+        "timestamp": "2026-03-26T10:04:56.772897",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 14,
+        "round": 12
+    },
+    {
+        "timestamp": "2026-03-26T10:04:57.074310",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 21,
+        "total_score_p2": 14,
+        "round": 13
+    },
+    {
+        "timestamp": "2026-03-26T10:20:33.156644",
+        "event": "reset",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T10:20:34.156704",
+        "event": "reset",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T10:22:11.201620",
+        "event": "start",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T10:22:33.325001",
+        "event": "score_hole",
+        "player": 2,
+        "color": "roze",
+        "points": 3,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T10:22:36.852151",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T10:22:39.118800",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T10:22:42.991417",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T10:22:55.901285",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T10:23:01.968573",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T10:23:04.898656",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T10:23:13.377004",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T10:23:15.773620",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T10:23:18.291067",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T10:23:20.511502",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 1,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T10:23:40.256873",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 1,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T10:23:44.999629",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 1,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T10:23:49.093628",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 1,
+        "total_score_p2": 1,
+        "round": 5
+    },
+    {
+        "timestamp": "2026-03-26T10:23:58.411730",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 1,
+        "total_score_p2": 1,
+        "round": 5
+    },
+    {
+        "timestamp": "2026-03-26T10:24:00.209549",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 1,
+        "total_score_p2": 1,
+        "round": 5
+    },
+    {
+        "timestamp": "2026-03-26T10:24:03.369183",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 3,
+        "total_score_p2": 1,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T10:24:12.035095",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 3,
+        "total_score_p2": 1,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T10:24:14.079025",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 3,
+        "total_score_p2": 1,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T10:24:14.650356",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 3,
+        "total_score_p2": 1,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T10:24:16.219737",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 3,
+        "total_score_p2": 1,
+        "round": 6
+    },
+    {
+        "timestamp": "2026-03-26T10:24:18.950040",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 3,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:27.869368",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 4,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:28.204144",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 5,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:28.512461",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 6,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:28.810692",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 7,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:29.365545",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 8,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:29.655044",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 9,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:29.948616",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 10,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:30.381505",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 11,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:30.667011",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 12,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:30.958488",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 13,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:31.251676",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 14,
+        "total_score_p2": 1,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:31.916448",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 14,
+        "total_score_p2": 2,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:32.233959",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 14,
+        "total_score_p2": 3,
+        "round": 7
+    },
+    {
+        "timestamp": "2026-03-26T10:24:33.294464",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 14,
+        "total_score_p2": 3,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:24:34.686375",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 15,
+        "total_score_p2": 3,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:24:35.023014",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 16,
+        "total_score_p2": 3,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:24:35.326859",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 17,
+        "total_score_p2": 3,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:24:35.613937",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 18,
+        "total_score_p2": 3,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:24:37.051925",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 18,
+        "total_score_p2": 4,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:24:37.499191",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 18,
+        "total_score_p2": 5,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:24:37.800338",
+        "event": "manual_plus",
+        "player": 2,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 18,
+        "total_score_p2": 6,
+        "round": 8
+    },
+    {
+        "timestamp": "2026-03-26T10:24:38.750418",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 18,
+        "total_score_p2": 6,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:24:40.011358",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 19,
+        "total_score_p2": 6,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:24:40.613895",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 20,
+        "total_score_p2": 6,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:24:41.196937",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 9
+    },
+    {
+        "timestamp": "2026-03-26T10:24:42.039358",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T10:41:44.158533",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T10:41:44.193788",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T10:41:44.224012",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T10:54:24.340510",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T10:54:35.163249",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T10:54:36.816803",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T10:54:56.846782",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T11:54:42.852544",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T12:11:14.097327",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T12:12:25.067193",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T12:12:27.556108",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T12:12:29.789877",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T12:12:37.641568",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T12:12:41.837562",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T12:12:52.357527",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T12:13:20.916799",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T12:13:56.117186",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 6,
+        "round": 10
+    },
+    {
+        "timestamp": "2026-03-26T12:17:22.595747",
+        "event": "start",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T12:17:48.766211",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T12:17:55.622942",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T12:18:02.975183",
+        "event": "score_board",
+        "player": 1,
+        "color": "groen",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 0,
+        "round": 1
+    },
+    {
+        "timestamp": "2026-03-26T12:18:07.197196",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T12:18:33.726486",
+        "event": "score_board",
+        "player": 2,
+        "color": "roze",
+        "points": 1,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T12:18:43.021487",
+        "event": "score_hole",
+        "player": 1,
+        "color": "groen",
+        "points": 3,
+        "total_score_p1": 0,
+        "total_score_p2": 1,
+        "round": 2
+    },
+    {
+        "timestamp": "2026-03-26T12:18:43.265780",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 2,
+        "total_score_p2": 1,
+        "round": 3
+    },
+    {
+        "timestamp": "2026-03-26T12:18:50.213250",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 2,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:01.374396",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 3,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:01.680410",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 4,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:02.005151",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 5,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:02.448022",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 6,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:02.735710",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 7,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:03.151943",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 8,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:03.441939",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 9,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:03.863643",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 10,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:04.159719",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 11,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:04.572901",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 12,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:04.867610",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 13,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:05.155222",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 14,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:05.455488",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 15,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:05.870907",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 16,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:06.154132",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 17,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:06.591837",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 18,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:06.879401",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 19,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:07.449153",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 20,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:08.113694",
+        "event": "manual_plus",
+        "player": 1,
+        "color": null,
+        "points": 1,
+        "total_score_p1": 21,
+        "total_score_p2": 1,
+        "round": 4
+    },
+    {
+        "timestamp": "2026-03-26T12:19:10.340013",
+        "event": "round_end",
+        "player": null,
+        "color": null,
+        "points": 0,
+        "total_score_p1": 21,
+        "total_score_p2": 1,
+        "round": 5
     }
 ]

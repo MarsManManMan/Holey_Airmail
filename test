@@ -1,5 +1,49 @@
+cornhole@cornhole:~/cornhole_pro $ cd /home/cornhole/cornhole_pro
 cornhole@cornhole:~/cornhole_pro $ python3 cornholepro.py
+Email Speler 1: 
+Email Speler 2: 
+Teamnaam Speler 1 (optioneel): 
+Teamnaam Speler 2 (optioneel): 
+Beschikbare kleuren: blauw, groen, geel, zwart, rood, wit, roze
+Speler 1 kleur 1: 
+Speler 1 kleur 2: 
+Speler 2 kleur 1: 
+Speler 2 kleur 2: 
+[4:36:53.646415283] [38699]  INFO Camera camera_manager.cpp:340 libcamera v0.7.0+rpt20260205
+[4:36:53.707185537] [38702] ERROR V4L2 v4l2_device.cpp:411 'imx708': Unable to set controls: Device or resource busy
+[4:36:53.967053968] [38702]  INFO IPAProxy ipa_proxy.cpp:180 Using tuning file /usr/share/libcamera/ipa/rpi/vc4/imx708.json
+[4:36:53.978670402] [38702]  INFO Camera camera_manager.cpp:223 Adding camera '/base/soc/i2c0mux/i2c@1/imx708@1a' for pipeline handler rpi/vc4
+[4:36:53.978828067] [38702]  INFO RPI vc4.cpp:445 Registered camera /base/soc/i2c0mux/i2c@1/imx708@1a to Unicam device /dev/media0 and ISP device /dev/media2
+[4:36:53.979040083] [38702]  INFO RPI pipeline_base.cpp:1117 Using configuration file '/usr/share/libcamera/pipeline/rpi/vc4/rpi_apps.yaml'
+[4:36:53.997210356] [38699]  INFO Camera camera.cpp:1020 Pipeline handler in use by another process
+Camera __init__ sequence did not complete.
 Traceback (most recent call last):
-  File "/home/cornhole/cornhole_pro/cornholepro.py", line 35, in <module>
-    from secretstuff import verstuurEmailAdress, Logincode
-ImportError: cannot import name 'verstuurEmailAdress' from 'secretstuff' (/home/cornhole/cornhole_pro/secretstuff.py)
+  File "/usr/lib/python3/dist-packages/picamera2/picamera2.py", line 353, in __init__
+    self._open_camera()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3/dist-packages/picamera2/picamera2.py", line 565, in _open_camera
+    self.camera.acquire()
+    ~~~~~~~~~~~~~~~~~~~^^
+RuntimeError: Failed to acquire camera: Device or resource busy
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/cornhole/cornhole_pro/cornholepro.py", line 242, in init_camera
+    cam = Picamera2()
+  File "/usr/lib/python3/dist-packages/picamera2/picamera2.py", line 365, in __init__
+    raise RuntimeError("Camera __init__ sequence did not complete.")
+RuntimeError: Camera __init__ sequence did not complete.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/cornhole/cornhole_pro/cornholepro.py", line 1502, in <module>
+    main()
+    ~~~~^^
+  File "/home/cornhole/cornhole_pro/cornholepro.py", line 1301, in main
+    cam = init_camera()
+  File "/home/cornhole/cornhole_pro/cornholepro.py", line 252, in init_camera
+    raise RuntimeError("Camera Module 3 kon niet gestart worden.")
+RuntimeError: Camera Module 3 kon niet gestart worden.
+cornhole@cornhole:~/cornhole_pro $ 
