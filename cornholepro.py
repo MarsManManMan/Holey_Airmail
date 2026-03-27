@@ -151,6 +151,17 @@ Cornhole Pro 2.5
 ========================================
 """
 
+# AI samenvatting genereren
+    ai_summary = generate_ai_summary(game)
+
+    body += f"""
+
+========================================
+         AI WEDSTRIJD SAMENVATTING
+========================================
+    {ai_summary}
+    """
+
     from email.mime.multipart import MIMEMultipart
     from email.mime.base import MIMEBase
     from email import encoders
@@ -573,6 +584,58 @@ class CornholeGame:
     
 def create_line_graph(game):
     p1, p2 = game.get_score_progression()
+
+def generate_ai_summary(game):
+    p1_total = game.total_score_p1
+    p2_total = game.total_score_p2
+    winner = "Speler 1" if p1_total > p2_total else "Speler 2"
+
+    acc1, acc2 = game.get_accuracy()
+
+    # Score progression ophalen
+    try:
+        p1_prog, p2_prog = game.get_score_progression()
+    except:
+        p1_prog, p2_prog = [0], [0]
+
+    # Momentum bepalen
+    momentum = []
+    for i in range(1, len(p1_prog)):
+        diff = p1_prog[i] - p2_prog[i]
+        momentum.append(diff)
+
+    # Analyse
+    early_lead = "Speler 1" if p1_prog[1] > p2_prog[1] else "Speler 2"
+    final_round = game.round_number - 1
+
+    summary = f"""
+Wedstrijdsamenvatting (AI gegenereerd)
+
+De wedstrijd eindigde in een overwinning voor {winner} met een eindscore van {p1_total} – {p2_total}.
+
+— Beginfase —
+{early_lead} nam de vroege leiding. 
+Na de eerste rondes ontwikkelde zich een duidelijk momentumverschil.
+
+— Spelverloop —
+Gedurende het verloop van {final_round} rondes wisselden de scores regelmatig.
+De totale score-progressie toont dat {'Speler 1' if max(momentum) > abs(min(momentum)) else 'Speler 2'} het momentum in het middendeel van de wedstrijd overnam.
+
+— Statistieken —
+Speler 1 Accuracy: {acc1:.1f}%
+Speler 2 Accuracy: {acc2:.1f}%
+
+Puntevolutie (per ronde):
+Speler 1: {p1_prog}
+Speler 2: {p2_prog}
+
+— Eindfase —
+De wedstrijd werd beslist in ronde {final_round}, waar de scoreverschillen opliepen en het winnende team de vereiste marge behaalde.
+
+Kortom: een {'spannende' if abs(p1_total - p2_total) <= 3 else 'duidelijke'} overwinning voor {winner}.
+"""
+
+    return summary
 
     plt.figure(figsize=(8,5))
     plt.plot(p1, marker='o', label='Speler 1', color='blue')

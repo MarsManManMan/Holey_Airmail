@@ -47,3 +47,4 @@ Traceback (most recent call last):
     raise RuntimeError("Camera Module 3 kon niet gestart worden.")
 RuntimeError: Camera Module 3 kon niet gestart worden.
 cornhole@cornhole:~/cornhole_pro $ 
+q
