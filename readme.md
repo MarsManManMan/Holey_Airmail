@@ -1,88 +1,73 @@
 Cornhole Pro 2.5
 Automated Computer‑Vision Scoring System for Cornhole
-Cornhole Pro 2.5 is an advanced automated scoring system for cornhole that uses computer vision, motion tracking, color detection, and stability logic to reliably recognize points during gameplay. It supports both Raspberry Pi Camera Module 3 (Picamera2) and USB webcams, and runs on Raspberry Pi OS (Bookworm) or any Linux/Windows/Mac desktop.
-Cornhole Pro 2.5 includes:
+Cornhole Pro 2.5 is an advanced automated scoring system for cornhole that uses computer vision, motion tracking, color detection, and stability logic to reliably recognize scoring events. It supports both Raspberry Pi Camera Module 3 (Picamera2) and USB webcams, and runs on Raspberry Pi OS (Bookworm) as well as Linux, Windows, and macOS.
+The system provides automatic scoring, ROI drawing tools, a live scoreboard, comprehensive logging, optional color calibration, a replay buffer, and an optional Flask web interface for remote scoreboard viewing and control.
 
-Automatic bag detection using HSV color segmentation
-Motion and stability analysis to avoid false detections
-Live scoreboard (separate window)
-Interactive ROI drawing (board rectangle + hole circle)
-Fully integrated logging system (events, rounds, detections, errors)
-Replay buffer (last 4 seconds)
-Optional Flask web interface for remote scoreboard display/control
-Automatic color calibration for perfect detection
-Email match reports with ASCII graphs + AI-generated summaries
-Full support for Raspberry Pi Camera Module 3 via Picamera2
-
-
-📦 Features
-✔ Automatic Scoring
+Features
+Automatic Scoring
 The system detects and classifies:
 
-Bag on board → 1 point
-Bag in hole → 3 points
+Bag on board: 1 point
+Bag in hole: 3 points
 
-Only stable, stationary bags are counted to ensure accuracy.
-✔ Motion & Stability Tracking
-A bag must:
+Points are only awarded once the bag has fully stopped moving.
+Motion and Stability Tracking
+To prevent false detections:
 
-Stop moving
-Remain inside the region for several consecutive frames
+The bag must stop moving
+The bag must remain inside the detection region for several consecutive frames
 
-Before any points are awarded.
-✔ Color Selection & Calibration
+Color Selection and Calibration
 
 Manual color selection
-Optional auto-calibration to measure HSV values under current lighting
+Optional automatic HSV calibration based on current lighting conditions
 
-✔ Realtime Interface
+Realtime Visual Interface
 
 Live camera feed
-Persistent scoreboard window
-Buttons for Start / Pause / Reset / Manual scoring
+Always-visible scoreboard window
+Controls for starting, pausing, resetting, and adjusting scores
 
-✔ Web Interface
-A built-in Flask UI allows any device on the same network to:
+Optional Web Interface
+A built-in Flask UI allows any device on the same network to view and control the scoreboard.
+Logging System
+All events are logged to CSV and JSON:
 
-View the scoreboard
-Control the match
-
-✔ Comprehensive Logging
-Outputs CSV + JSON files for:
-
-Events
 Bag detections
+Events
 Round summaries
-Errors
+Error logs
 
 
-🚀 Installation (Raspberry Pi OS Bookworm)
-1. Install Required System Dependencies (APT)
+Installation (Raspberry Pi OS Bookworm)
+1. Required System Packages (APT)
+Install system dependencies:
 Shellsudo apt updatesudo apt install -y \    python3 python3-pip python3-opencv \    python3-numpy python3-flask python3-picamera2 \    python3-pil python3-matplotlib \    libatlas-base-dev libopenblas-dev liblapack-devMeer regels weergeven
 
-2. Install Required Python Packages (PIP)
+2. Required Python Packages (PIP)
+Install the additional Python dependencies:
 Shellpip3 install qrcode[pil]Meer regels weergeven
-If your logging module is not included locally:
+If your logging module is external:
 Shellpip3 install cornhole-loggingMeer regels weergeven
 
-3. Enable Raspberry Pi Camera Module 3 (Picamera2)
-Run:
+3. Raspberry Pi Camera Setup (Picamera2)
+Enable the camera:
 Shellsudo raspi-configMeer regels weergeven
 Navigate to:
 Interface Options → Camera → Enable
 
-Then reboot:
+Reboot:
 Shellsudo rebootMeer regels weergeven
 Test Picamera2:
-Shellpython3 - << 'EOF'from picamera2 import Picamera2Picamera2()print("Picamera2 is working!")EOFMeer regels weergeven
+Shellpython3 - << 'EOF'from picamera2 import Picamera2Picamera2()print("Picamera2 is working.")EOFMeer regels weergeven
 
-4. Required Local Files
-📁 secretstuff.py
-Create this file with your email credentials:
+Required Files
+secretstuff.py
+Create this file inside the project directory:
 PythonverstuurEmailAdress = "your_email@gmail.com"Logincode = "your_gmail_app_password"Meer regels weergeven
-Google requires an App Password (not your login password).
-📁 cornhole_logging/
-Must contain at least:
+Google requires an App Password for SMTP.
+cornhole_logging/
+This folder must contain the logging classes:
 
 EventLogger
 JSONLogger
@@ -90,9 +75,8 @@ DetectionLogger
 RoundLogger
 ErrorLogger
 
-If using your own implementation, keep this folder in the project directory.
 
-📂 Recommended Project Structure
+Recommended Project Structure
 CornholePro/
 │
 ├── cornhole_pro.py
@@ -109,31 +93,30 @@ CornholePro/
 └── README.md
 
 
-▶️ Running Cornhole Pro
-From the project folder:
-Shellpython3 cornhole_pro.py``Meer regels weergeven
-You will be guided through:
+Running Cornhole Pro
+In the project directory:
+Shellpython3 cornhole_pro.pyMeer regels weergeven
+The program guides you through:
 
-Player color selection
-Optional automatic color calibration
-Drawing the board & hole ROIs
+Selecting player bag colors
+Optional HSV calibration
+Drawing the board rectangle and hole circle
 Starting the match
 
-The scoreboard appears in a separate window.
+A separate scoreboard window will remain visible.
 
-🌐 Optional Web Interface
+Web Interface (Optional)
 If enabled in the script:
 Pythonflask_enabled = TrueMeer regels weergeven
-Visit from any device on the network:
+You can access the scoreboard from any device on the same network:
 http://<raspberry_pi_ip>:5000
 
 Example:
 http://192.168.0.52:5000
 
-This shows the live scoreboard and controls.
 
-📊 Logging System
-Cornhole Pro automatically generates:
+Logging
+The system automatically generates:
 
 cornhole_events.csv
 cornhole_events.json
@@ -141,46 +124,15 @@ cornhole_detections.csv
 cornhole_rounds.csv
 cornhole_errors.csv
 
-Useful for debugging, data analysis, statistics, or tournaments.
+These logs are useful for debugging, analytics, tournaments, and post‑game review.
 
-✉️ Email Match Reports
-After each match, the system can send a full report including:
+Email Match Reports
+After a match, Cornhole Pro can send a detailed email including:
 
 Final score
 Accuracy graphs
-Points-per-round
+Points per round
 Color hitmaps
-AI‑generated match summary
+AI-generated match summary
 
-SMTP details are taken from secretstuff.py.
-
-❗ Troubleshooting
-Camera not working
-Try:
-Shelllibcamera-helloMeer regels weergeven
-Black screen for USB webcam
-Ensure legacy camera mode is disabled in raspi-config.
-Picamera2 import error
-You are likely running Raspberry Pi OS Bullseye.
-Upgrade to Bookworm.
-Flask interface unreachable
-Check your local IP:
-Shellhostname -IMeer regels weergeven
-
-🧩 Planned Future Improvements
-
-Machine learning bag classifier
-Multi-camera support
-Tournament brackets
-Livestream overlay mode
-
-
-❤️ Credits
-Cornhole Pro 2.5 is a complete rewrite focusing on:
-
-Modern Picamera2 stack
-Clean architecture
-Improved ROI system
-Stable scoring logic
-Extended logging
-Better web interface
+SMTP settings are retrieved from secretstuff.py
