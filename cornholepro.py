@@ -183,6 +183,46 @@ Cornhole Pro 2.5
     except Exception as e:
         print("Email fout:", e)
 
+def compute_momentum(game):
+
+    try:
+            p1, p2 = game.get_score_progression()
+    except:
+        return 0  # veiligheid
+
+    # momentum = laatste netto verschil, genormaliseerd tussen -1 en +1
+    diff = p1[-1] - p2[-1]
+    total = max(p1[-1], p2[-1], 1)
+
+    momentum = diff / total
+
+    # limiteren
+    if momentum > 1: momentum = 1
+    if momentum < -1: momentum = -1
+
+    return momentum
+
+def live_commentary(game):
+    """Genereer realtime tekst voor dashboard commentator."""
+    if game.round_number <= 1:
+        return "De wedstrijd gaat zo beginnen!"
+
+    p1 = game.total_score_p1
+    p2 = game.total_score_p2
+
+    diff = p1 - p2
+
+    if abs(diff) <= 1:
+        return "Wat een spannende strijd! Het blijft nek-aan-nek!"
+
+    if diff > 1:
+        return f"{team_1_name} neemt de leiding met {diff} punten!"
+
+    if diff < -1:
+        return f"{team_2_name} domineert en staat {abs(diff)} punten voor!"
+
+    return "De wedstrijd is in volle gang…"
+
 CAMERA_RESOLUTION = (1280, 720)
 TARGET_FPS = 30
 
@@ -726,54 +766,39 @@ def draw_feedback(frame):
         return frame
 
     typ, ts = fb
-    if time.time() - ts > ui_state["feedback_duration"]:
-        ui_state["last_feedback"] = None
-        return frame
+    elapsed = time.time() - ts
+
+    # Veiligere timeout (valt niet weg als frame vertraagd is)
+    if elapsed >= ui_state["feedback_duration"]:
+        return frame  # NIET verwijderen, gewoon laten uitdoven
 
     overlay = frame.copy()
     h, w = frame.shape[:2]
 
+    # Kleuren & tekst
     if typ == "hole":
-        color = (0, 200, 0); msg = "+3 HOLE"
+        color = (0, 200, 0)
+        msg = "+3 HOLE"
     elif typ == "board":
-        color = (0, 200, 200); msg = "+1 BOARD"
+        color = (0, 180, 255)
+        msg = "+1 BOARD"
     else:
-        color = (200, 200, 200); msg = "MANUAL"
+        color = (200, 200, 200)
+        msg = "MANUAL"
 
-    cv2.rectangle(overlay, (0,0), (w,h), color, -1)
-    frame = cv2.addWeighted(overlay, 0.4, frame, 0.6, 0)
+    # Transparante kleurlaag
+    alpha = 0.45  # iets mooier dan 0.4
+    cv2.rectangle(overlay, (0, 0), (w, h), color, -1)
+    frame = cv2.addWeighted(overlay, alpha, frame, 1 - alpha, 0)
 
+    # Tekst centreren
     (tw, th), _ = cv2.getTextSize(msg, cv2.FONT_HERSHEY_DUPLEX, 2, 3)
-    cv2.putText(frame, msg, ((w-tw)//2, h//2),
-                cv2.FONT_HERSHEY_DUPLEX, 2, (255,255,255), 3)
+    cx = (w - tw) // 2
+    cy = int(h * 0.55)
 
-    return frame
-
-
-# ============================================================
-# ROI TEKENEN
-# ============================================================
-
-def draw_rois(frame):
-    if board_rect:
-        x1, y1, x2, y2 = board_rect
-        cv2.rectangle(frame, (x1, y1), (x2, y2), (255,255,255), 2)
-        cv2.putText(frame, "BOARD", (x1, y1 - 8),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, THEME["text"], 2)
-
-    if hole_circle:
-        cx, cy, r = hole_circle
-        cv2.circle(frame, (cx, cy), r, (255,255,255), 2)
-        cv2.putText(frame, "HOLE", (cx-r, cy-r-8),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, THEME["text"], 2)
-
-    if current_preview:
-        if current_preview[0] == "rect":
-            _, x1, y1, x2, y2 = current_preview
-            cv2.rectangle(frame, (x1, y1), (x2, y2), THEME["muted"], 1)
-        else:
-            _, cx, cy, r = current_preview
-            cv2.circle(frame, (cx,cy), r, THEME["muted"], 1)
+    cv2.putText(frame, msg, (cx, cy),
+                cv2.FONT_HERSHEY_DUPLEX, 2,
+                (255, 255, 255), 3)
 
     return frame
 
@@ -804,6 +829,44 @@ def draw_bags_overlay(frame, bags):
 
     return frame
 
+
+def draw_rois(frame):
+    if frame is None or not isinstance(frame, np.ndarray):
+        return frame
+
+    # BOARD RECT
+    if board_rect is not None:
+        try:
+            x1, y1, x2, y2 = board_rect
+            cv2.rectangle(frame, (x1, y1), (x2, y2), (255,255,255), 2)
+            cv2.putText(frame, "BOARD", (x1, y1 - 8),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, THEME["text"], 2)
+        except:
+            pass
+
+    # HOLE CIRCLE
+    if hole_circle is not None:
+        try:
+            cx, cy, r = hole_circle
+            cv2.circle(frame, (cx, cy), r, (255,255,255), 2)
+            cv2.putText(frame, "HOLE", (cx-r, cy-r-8),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, THEME["text"], 2)
+        except:
+            pass
+
+    # PREVIEW
+    if current_preview:
+        try:
+            if current_preview[0] == "rect":
+                _, x1, y1, x2, y2 = current_preview
+                cv2.rectangle(frame, (x1, y1), (x2, y2), THEME["muted"], 1)
+            else:
+                _, cx, cy, r = current_preview
+                cv2.circle(frame, (cx, cy), r, THEME["muted"], 1)
+        except:
+            pass
+
+    return frame    
 
 # ============================================================
 # HUD PANEL LEFT + RIGHT
@@ -1065,17 +1128,23 @@ def handle_button(action):
 # ============================================================
 
 _flask_app = None
+app = None   # ← heel belangrijk!
 
 def start_web_interface():
-    global _flask_app, game, hitmap_p1, hitmap_p2
+    global _flask_app, app, game, hitmap_p1, hitmap_p2
 
+    # Als server al draait, niet opnieuw starten
     if _flask_app is not None:
         return
 
+    # Maak Flask app (globaal!)
     app = Flask(__name__)
     _flask_app = app
 
-    # --- SIMPLE INDEX ---
+    # ------------------------------------------
+    # ROUTES
+    # ------------------------------------------
+
     @app.route("/")
     def index():
         return f"<h1>Cornhole Pro 2.5</h1><p>Score: {game.total_score_p1} - {game.total_score_p2}</p>"
@@ -1093,82 +1162,78 @@ def start_web_interface():
     # ============================================================
     @app.route("/dashboard3")
     def dashboard3():
-        return render_template_string(""")
+        return render_template_string("""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Cornhole Dashboard 3.0</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Cornhole Dashboard 3.0</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            background:#0d1117;
-            color:white;
-            font-family:Arial;
-            margin:0;
-            padding:0;
-        }
-        .header {
-            text-align:center;
-            padding:20px;
-            background:#161b22;
-            font-size:32px;
-            color:#58a6ff;
-        }
-        .container {
-            display:flex;
-            flex-wrap:wrap;
-            justify-content:center;
-            padding:20px;
-            gap:20px;
-        }
-        .card {
-            width:300px;
-            background:#21262d;
-            padding:20px;
-            border-radius:12px;
-            box-shadow:0 0 10px rgba(0,0,0,.4);
-        }
+        <style>
+            body {
+                background:#0d1117;
+                color:white;
+                font-family:Arial;
+                margin:0;
+                padding:0;
+            }
+            .header {
+                text-align:center;
+                padding:20px;
+                background:#161b22;
+                font-size:32px;
+                color:#58a6ff;
+            }
+            .container {
+                display:flex;
+                flex-wrap:wrap;
+                justify-content:center;
+                padding:20px;
+                gap:20px;
+            }
+            .card {
+                width:300px;
+                background:#21262d;
+                padding:20px;
+                border-radius:12px;
+                box-shadow:0 0 10px rgba(0,0,0,.4);
+            }
         .score {
             font-size:64px;
-            text-align:center;
             color:#00ff90;
+            text-align:center;
         }
         .label {
-            text-align:center;
             font-size:20px;
+            text-align:center;
             color:#ccc;
         }
         .hitmap {
             width:100%;
             height:240px;
-            border-radius:12px;
             background:black;
-            margin-top:10px;
-        }
-        .footer-nav {
-            text-align:center;
-            margin-top:20px;
-        }
-        .btn {
-            padding:10px 20px;
-            background:#238636;
-            border-radius:8px;
-            color:white;
-            text-decoration:none;
-            margin:10px;
-            display:inline-block;
+            border-radius:12px;
         }
     </style>
 </head>
+
 <body>
 
 <div class="header">Cornhole Dashboard 3.0</div>
 
 <div class="container">
+
+    <div class="card" style="width:650px;">
+        <div class="label">Momentum</div>
+        <div id="momentum_bar" style="width:100%;height:30px;background:#333;border-radius:10px;position:relative;">
+            <div id="momentum_fill" style="width:50%;height:30px;background:#00ff90;border-radius:10px;position:absolute;left:25%;"></div>
+        </div>
+
+        <div class="label" style="margin-top:20px;">Live Commentator</div>
+        <div id="commentary_box" style="background:#111;padding:15px;border-radius:10px;color:#58a6ff;font-size:18px;min-height:60px;">
+            Laden…
+        </div>
+    </div>
 
     <div class="card">
         <div class="label">TEAM 1</div>
@@ -1188,11 +1253,6 @@ def start_web_interface():
 
 </div>
 
-<div class="footer-nav">
-    <a href="/replays">🎥 Replays</a>
-    <a href="/profiles">👤 Profielen</a>
-</div>
-
 <script>
 function update(){
     fetch('/api/state3')
@@ -1205,22 +1265,12 @@ function update(){
         document.getElementById("acc1").innerText = s.acc1;
         document.getElementById("acc2").innerText = s.acc2;
 
-        drawHitmap("hitmap1", s.hitmap_p1);
-        drawHitmap("hitmap2", s.hitmap_p2);
-    });
-}
+        let bar = document.getElementById("momentum_fill");
+        let val = (s.momentum + 1) / 2;
+        bar.style.width = (val * 100) + "%";
+        bar.style.left = ((1-val) * 100) + "%";
 
-function drawHitmap(canvasId, points){
-    var c = document.getElementById(canvasId);
-    var ctx = c.getContext("2d");
-    ctx.fillStyle = "black";
-    ctx.fillRect(0,0,c.width,c.height);
-
-    ctx.fillStyle = "red";
-    points.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 4, 0, 2 * Math.PI);
-        ctx.fill();
+        document.getElementById("commentary_box").innerText = s.commentary;
     });
 }
 
@@ -1230,9 +1280,15 @@ update();
 
 </body>
 </html>
- """)
+""")
 
+    # ------------------------------------------
+    # START SERVER (BINNEN DEZE FUNCTIE!)
+    # ------------------------------------------
+    def run_server():
+        app.run(host="0.0.0.0", port=5000, debug=False, use_reloader=False)
 
+    threading.Thread(target=run_server, daemon=True).start()
 
     # ============================================================
     # API FOR DASHBOARD 3.0
@@ -1240,6 +1296,10 @@ update();
     @app.route("/api/state3")
     def api_state3():
         acc1, acc2 = game.get_accuracy()
+        momentum = compute_momentum(game)
+
+        comment = live_commentary(game)
+
         return jsonify({
             "total_p1": game.total_score_p1,
             "total_p2": game.total_score_p2,
@@ -1247,14 +1307,11 @@ update();
             "acc1": round(acc1, 1),
             "acc2": round(acc2, 1),
             "hitmap_p1": [{"x": int(p[0]), "y": int(p[1])} for p in hitmap_p1],
-            "hitmap_p2": [{"x": int(p[0]), "y": int(p[1])} for p in hitmap_p2]
-        })
-
-    # SERVER START
-    def run():
-        app.run(host="0.0.0.0", port=5000, debug=False, use_reloader=False)
-
-    threading.Thread(target=run, daemon=True).start()
+            "hitmap_p2": [{"x": int(p[0]), "y": int(p[1])} for p in hitmap_p2],
+            "momentum": momentum,
+            "commentary": comment
+})
+    
 
 def get_local_ip():
     try:
@@ -1437,16 +1494,7 @@ def main():
             # --------------------------------------------------
             # ROI MODE — eerst BOARD en HOLE tekenen
             # --------------------------------------------------
-            if mode != "done":
-                frame = draw_rois(frame)
-                frame = draw_buttons(frame)
-                cv2.putText(frame, "Teken eerst BOARD + HOLE",
-                            (20, frame.shape[0]-20),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.9,
-                            THEME["accent"], 2)
-                cv2.imshow(window, frame)
-                draw_score_window(game)
-                continue
+
 
             # --------------------------------------------------
             # DETECTIE + TRACKING
@@ -1491,27 +1539,61 @@ def main():
                 if bstate["still_frames"] < STILL_FRAMES_REQUIRED:
                     continue
 
-                # --- SCORE LOGICA ---
+                # --- SCORE LOGIC (FIXED & RELIABLE) ---
+                # PRIORITEIT: eerst HOLE → dan BOARD
+
+                # 1) HOLE DETECTIE
                 if in_hole and not bstate["scored_hole"]:
-                    if tracker.can_score(bid):
-                        game.register_hit(color, True)   # +3 rondepunten
-                        bstate["scored_hole"] = True
-                        bstate["scored_board"] = True
-                        ui_state["last_feedback"] = ("hole", time.time())
 
-                        # --- REPLAY OPSLAAN ---
-                        replay_path = f"{REPLAY_DIR}/replay_{replay_index}.mp4"
-                        save_replay_opencv(list(replay_buffer), replay_path)
-                        replay_index += 1
+                    # ⇒ bag mag alleen scoren als hij echt stil ligt IN het gat
+                    if bstate["still_frames"] >= STILL_FRAMES_REQUIRED:
 
-                        log_event(
-                            "score_hole",
-                            1 if color in player1_colors else 2,
-                            color,
-                            POINTS_HOLE,
-                            game
-                        )
-                    continue
+                        if tracker.can_score(bid):
+                            game.register_hit(color, True)  # +3
+                            bstate["scored_hole"] = True
+                            bstate["scored_board"] = True   # voorkomt dubbele score
+
+                            # Forceer de animatie opnieuw (dit was de bug!)
+                            ui_state["last_feedback"] = ("hole", time.time())
+
+                            # Replay veilig opslaan
+                            replay_path = f"{REPLAY_DIR}/replay_{replay_index}.mp4"
+                            save_replay_opencv(list(replay_buffer), replay_path)
+                            replay_index += 1
+
+                            log_event(
+                                "score_hole",
+                                1 if color in player1_colors else 2,
+                                color,
+                                POINTS_HOLE,
+                                game
+                            )
+
+                        continue  # HOLE heeft altijd prioriteit → skip rest
+
+
+                # 2) BOARD DETECTIE
+                if on_board and not bstate["scored_board"]:
+
+                    # Board moet óók pas tellen als bag echt stil ligt
+                    if bstate["still_frames"] >= STILL_FRAMES_REQUIRED:
+
+                        if tracker.can_score(bid):
+                            game.register_hit(color, False)  # +1
+                            bstate["scored_board"] = True
+
+                            # Fix: animatie gaat soms weg → nu altijd forceren
+                            ui_state["last_feedback"] = ("board", time.time())
+
+                            log_event(
+                                "score_board",
+                                1 if color in player1_colors else 2,
+                                color,
+                                POINTS_BOARD,
+                                game
+                            )
+
+                        continue
 
                 if on_board and not bstate["scored_board"]:
                     if tracker.can_score(bid):

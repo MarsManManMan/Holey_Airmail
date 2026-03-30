@@ -1,4 +1,3 @@
-cornhole@cornhole:~/cornhole_pro $ cd /home/cornhole/cornhole_pro
 cornhole@cornhole:~/cornhole_pro $ python3 cornholepro.py
 Email Speler 1: 
 Email Speler 2: 
@@ -9,42 +8,39 @@ Speler 1 kleur 1:
 Speler 1 kleur 2: 
 Speler 2 kleur 1: 
 Speler 2 kleur 2: 
-[4:36:53.646415283] [38699]  INFO Camera camera_manager.cpp:340 libcamera v0.7.0+rpt20260205
-[4:36:53.707185537] [38702] ERROR V4L2 v4l2_device.cpp:411 'imx708': Unable to set controls: Device or resource busy
-[4:36:53.967053968] [38702]  INFO IPAProxy ipa_proxy.cpp:180 Using tuning file /usr/share/libcamera/ipa/rpi/vc4/imx708.json
-[4:36:53.978670402] [38702]  INFO Camera camera_manager.cpp:223 Adding camera '/base/soc/i2c0mux/i2c@1/imx708@1a' for pipeline handler rpi/vc4
-[4:36:53.978828067] [38702]  INFO RPI vc4.cpp:445 Registered camera /base/soc/i2c0mux/i2c@1/imx708@1a to Unicam device /dev/media0 and ISP device /dev/media2
-[4:36:53.979040083] [38702]  INFO RPI pipeline_base.cpp:1117 Using configuration file '/usr/share/libcamera/pipeline/rpi/vc4/rpi_apps.yaml'
-[4:36:53.997210356] [38699]  INFO Camera camera.cpp:1020 Pipeline handler in use by another process
-Camera __init__ sequence did not complete.
+[0:29:12.427048516] [2987]  INFO Camera camera_manager.cpp:340 libcamera v0.7.0+rpt20260205
+[0:29:12.488540490] [2990]  INFO IPAProxy ipa_proxy.cpp:180 Using tuning file /usr/share/libcamera/ipa/rpi/vc4/imx708.json
+[0:29:12.495158647] [2990]  INFO Camera camera_manager.cpp:223 Adding camera '/base/soc/i2c0mux/i2c@1/imx708@1a' for pipeline handler rpi/vc4
+[0:29:12.495303077] [2990]  INFO RPI vc4.cpp:445 Registered camera /base/soc/i2c0mux/i2c@1/imx708@1a to Unicam device /dev/media2 and ISP device /dev/media1
+[0:29:12.495348831] [2990]  INFO RPI pipeline_base.cpp:1117 Using configuration file '/usr/share/libcamera/pipeline/rpi/vc4/rpi_apps.yaml'
+[0:29:12.507121318] [2987]  INFO Camera camera.cpp:1215 configuring streams: (0) 1280x720-XBGR8888/Rec709/Rec709/None/Full (1) 1536x864-SBGGR10_CSI2P/RAW
+[0:29:12.508141489] [2990]  INFO RPI vc4.cpp:620 Sensor: /base/soc/i2c0mux/i2c@1/imx708@1a - Selected sensor format: 1536x864-SBGGR10_1X10/RAW - Selected unicam format: 1536x864-pBAA/RAW
+Kleurkalibratie uitvoeren? (j/n): n
 Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/picamera2/picamera2.py", line 353, in __init__
-    self._open_camera()
-    ~~~~~~~~~~~~~~~~~^^
-  File "/usr/lib/python3/dist-packages/picamera2/picamera2.py", line 565, in _open_camera
-    self.camera.acquire()
-    ~~~~~~~~~~~~~~~~~~~^^
-RuntimeError: Failed to acquire camera: Device or resource busy
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/cornhole/cornhole_pro/cornholepro.py", line 242, in init_camera
-    cam = Picamera2()
-  File "/usr/lib/python3/dist-packages/picamera2/picamera2.py", line 365, in __init__
-    raise RuntimeError("Camera __init__ sequence did not complete.")
-RuntimeError: Camera __init__ sequence did not complete.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/cornhole/cornhole_pro/cornholepro.py", line 1502, in <module>
+  File "/home/cornhole/cornhole_pro/cornholepro.py", line 1617, in <module>
     main()
     ~~~~^^
-  File "/home/cornhole/cornhole_pro/cornholepro.py", line 1301, in main
-    cam = init_camera()
-  File "/home/cornhole/cornhole_pro/cornholepro.py", line 252, in init_camera
-    raise RuntimeError("Camera Module 3 kon niet gestart worden.")
-RuntimeError: Camera Module 3 kon niet gestart worden.
+  File "/home/cornhole/cornhole_pro/cornholepro.py", line 1436, in main
+    start_web_interface()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/cornhole/cornhole_pro/cornholepro.py", line 1291, in start_web_interface
+    @app.route("/api/state3")
+     ~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/sansio/scaffold.py", line 362, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+    ...<2 lines>...
+    )
+AssertionError: View function mapping is overwriting an existing endpoint function: api_state3
+ * Serving Flask app 'cornholepro'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.157.0.201:5000
+Press CTRL+C to quit
 cornhole@cornhole:~/cornhole_pro $ 
-q
